@@ -25,7 +25,7 @@ export default class Product extends PureComponent {
                     <h2 className="product-brand">{this.props.brand}</h2>
                     <p className="product-title">{this.props.name}</p>
                     <p className="price">PRICE:</p>
-                    <p className="amount">{this.props.selectedCourse}{this.props.price}</p>
+                    <p className="amount">{this.context.selectedCourse}{this.props.price}</p>
                     <ul className="attributes">
                         {this.props.attributes.map(attribute => (
                             <li key={attribute.id}>
