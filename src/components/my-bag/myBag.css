@@ -1,0 +1,148 @@
+.my-bag {
+    max-height: 677px;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    z-index: 200;
+    padding: 32px 16px;
+    box-shadow: 10px 10px 10px #d9d9d8;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.my-bag .product {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #60640f;
+}
+
+.my-bag .mini-image,
+.my-bag .description {
+    display: none;
+}
+
+.my-bag .product-image {
+    margin-left: 50px;
+    width: 121px;
+    object-fit: contain
+}
+
+.product-brand {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    margin-bottom: 16px;
+}
+
+.product-title {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 27px;
+    margin-bottom: 45px;
+}
+
+.price,
+.amount {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    margin-top: 10px;
+}
+
+.amount {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+    cursor: pointer;
+    padding: 16px 94px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    color: #ffffff;
+    background-color: #5ECE7B;
+    border: none;
+    margin-bottom: 40px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #88d89d;
+}
+
+.add-to-cart-btn:active {
+    background-color: #5ECE7B;
+}
+
+.attribute-name {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.attribute-param {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.attribute-param__item {
+    margin-right: 5px;
+    border: 1px solid #000;
+    padding: 14px 23px;
+    cursor: pointer;
+}
+
+.color-attribute {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+    cursor: pointer;
+    display: flex;
+}
+
+.color-attribute_selected {
+    border: 2px solid #0F6450;
+}
+
+.is-stock,
+.is-stock:hover {
+    cursor: auto;
+    background-color: #d3d3d3;
+}
+
+.selected-attribute {
+    background-color: #1D1F22;
+    color: #fff;
+}
+
+.products-mini {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+}
+
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 18px;
+}
+
+.order-block-buttons {
+    margin: 32px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-block-buttons a {
+    padding: 13px 36px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    border: 1px solid #1D1F22;
+    background-color: #fff;
+
+}

@@ -1,0 +1,53 @@
+.my-cart {
+    position: relative;
+    box-shadow: none;
+    z-index: 50;
+}
+
+.cart {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #1D1F22;
+}
+
+.poduct-item {
+    border-bottom: 1px solid #E5E5E5;
+    padding-bottom: 20px;
+}
+
+.order-block {
+    margin-top: 32px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1D1F22;
+}
+
+.order-block span {
+    font-weight: 700;
+}
+
+.order-block .quantity {
+    margin: 8px 0;
+}
+
+.order-btn {
+    margin-top: 32px;
+    padding: 15px 116px;
+    background: #5ECE7B;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 120%;
+    border: none;
+    cursor: pointer;
+}
+
+.empthy-cart {
+    text-align: center;
+    font-size: 24px;
+    color: #807a7a;
+}
