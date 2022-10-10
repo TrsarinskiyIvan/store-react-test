@@ -36,7 +36,7 @@ export default class Cart extends PureComponent {
                         <p className="total">Total: <span>{this.context.selectedCourse}{((1 - this.context.tax) * this.context.totalProducts().price).toFixed(2)}</span></p>
                         <button className="order-btn">order</button>
                     </div>
-                </div> : <div className="empthy-cart">The cart is empthy</div>}
+                </div> : <div className="empthy-cart">The cart is empty</div>}
             </div>)
     }
 } 
