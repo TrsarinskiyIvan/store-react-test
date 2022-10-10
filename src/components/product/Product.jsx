@@ -61,13 +61,15 @@ export default class Product extends PureComponent {
                     </ul>
                     <button
                         onClick={() => {
-                            this.context.addToMyBag({
-                                product: this.props,
-                                attributes: this.state.selectedAttributes,
-                                quantity: 1
-                            });
+                            if (this.props.isStock) {
+                                this.context.addToMyBag({
+                                    product: this.props,
+                                    attributes: this.state.selectedAttributes,
+                                    quantity: 1
+                                });
+                            }
                         }}
-                        className={`add-to-cart-btn ${this.props.isStock && 'is-stock'}`}>ADD TO CART
+                        className={`add-to-cart-btn ${!this.props.isStock && 'is-stock'}`}>ADD TO CART
                     </button>
                     <p className="description">{this.props.description}</p>
                 </div>

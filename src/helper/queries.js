@@ -41,6 +41,7 @@ export const PRODUCTS = gql`query getPropducts {
                     products{
                         name
                         id
+                        inStock
                         gallery
                         prices{
                             amount

@@ -113,10 +113,13 @@
     border: 2px solid #0F6450;
 }
 
-.is-stock,
+.is-stock {
+    background-color: #808080;
+}
+
 .is-stock:hover {
     cursor: auto;
-    background-color: lightgray;
+    background-color: #808080;
 }
 
 .selected-attribute {

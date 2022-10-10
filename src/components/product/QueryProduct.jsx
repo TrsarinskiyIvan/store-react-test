@@ -30,7 +30,7 @@ export default class QueryProduct extends PureComponent {
                             price={data.product.prices[chooseCourse(this.context.selectedCourse)].amount}
                             prices={data.product.prices}
                             selectedCourse={this.props.selectedCourse}
-                            isStock={data.product.isStock}
+                            isStock={data.product.inStock}
                         />);
                 }}
             </Query>);
