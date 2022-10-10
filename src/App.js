@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { CardContainer } from './components/card-container/CardContainer';
 import { PureComponent } from 'react';
 import QueryProduct from './components/product/QueryProduct';
-import Cart from './components/Cart/Cart';
+import Cart from './components/cart/Cart';
 import CartContext from './cartContext';
 import chooseCourse from './helper/chooseCourse';
 
