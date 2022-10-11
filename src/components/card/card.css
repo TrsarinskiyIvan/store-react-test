@@ -7,7 +7,7 @@
 
 .card:hover {
     cursor: pointer;
-    box-shadow: 10px 10px 20px rgb(219, 216, 216);
+    box-shadow: 10px 10px 20px #dbd8d8;
 }
 
 .card__pic {
@@ -34,7 +34,7 @@
     line-height: 160%;
 }
 
-.card__to-cart-btn {
+.card__to-cart-block {
     opacity: 0;
     width: 100px;
     position: absolute;
@@ -45,10 +45,10 @@
     cursor: pointer;
 }
 
-.card__to-cart-btn>img {
+.card__to-cart-block>img {
     width: 100%;
 }
 
-.card:hover .card__to-cart-btn {
+.card:hover .card__to-cart-block {
     opacity: 1;
 }

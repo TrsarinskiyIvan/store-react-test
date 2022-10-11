@@ -10,7 +10,7 @@ export default class Card extends PureComponent {
                 <h2 className="card__title">{this.props.title}</h2>
                 <h2 className="card__title">{this.props.idProduct}</h2>
                 <p className="card__price">{this.props.selectedCourse}&nbsp;{this.props.price}</p>
-                <button className="card__to-cart-btn"><img src="./to-cart.png" alt="" /></button>
+                <div className="card__to-cart-block"><img src="./to-cart.png" alt="" /></div>
             </div>
         );
     }
