@@ -20,7 +20,7 @@ class App extends PureComponent {
       selectedCourse: '$',
       selectedProduct: '',
       myBag: [],
-      tax: 0.1,
+      tax: 0.21,
       addToMyBag: this.addToMyBag,
       removeFromMyBag: this.removeFromMyBag,
       selectCourse: this.selectCourse,
@@ -55,7 +55,7 @@ class App extends PureComponent {
       let tempProduct;
       let tempBag;
 
-      tempProduct = p.myBag[foundIndex];
+      tempProduct = { ...p.myBag[foundIndex] };
       tempProduct.quantity--;
 
       tempBag = [...p.myBag];
