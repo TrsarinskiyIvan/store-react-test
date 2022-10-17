@@ -22,9 +22,7 @@ export class CardContainer extends PureComponent {
                             {data.category.products.map(i => {
                                 return (
                                     <li key={i.id}>
-                                        <Link to={`/product/${i.id}`} onClick={() => {
-                                            this.context.selectProduct(i.id);
-                                        }}>
+                                        <Link to={`/product/?id=${i.id}`}>
                                             <Card
                                                 idProduct={i.id}
                                                 title={i.name}

@@ -18,13 +18,11 @@ class App extends PureComponent {
     this.state = {
       selectedCategory: 'all',
       selectedCourse: '$',
-      selectedProduct: '',
       myBag: [],
       tax: 0.21,
       addToMyBag: this.addToMyBag,
       removeFromMyBag: this.removeFromMyBag,
       selectCourse: this.selectCourse,
-      selectProduct: this.selectProduct,
       selectCategory: this.selectCategory,
       totalProducts: this.totalProducts
     }
@@ -113,11 +111,6 @@ class App extends PureComponent {
     this.setState(p => ({ ...p, selectedCourse: symbol }));
   }
 
-  selectProduct = (idProduct) => {
-    this.setState(p => ({ ...p, selectedProduct: idProduct }));
-
-  }
-
   render() {
     return (
       <CartContext.Provider value={this.state}>
@@ -128,9 +121,7 @@ class App extends PureComponent {
               <Cart />
             </Route>
             <Route path='/product'>
-              <QueryProduct
-                idProduct={this.state.selectedProduct}
-              />
+              <QueryProduct />
             </Route>
             <Route path={`/`}>
               <CardContainer />

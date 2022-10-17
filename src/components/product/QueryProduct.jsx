@@ -10,8 +10,12 @@ export default class QueryProduct extends PureComponent {
     static contextType = CartContext;
 
     render() {
+
+        const querryParams = new URLSearchParams(window.location.search);
+        const id = querryParams.get('id');
+
         return (
-            <Query query={PRODUCT} variables={{ id: this.props.idProduct }}>
+            <Query query={PRODUCT} variables={{ id }}>
                 {({ data, loading, error }) => {
                     if (error) return <h2>Error!</h2>;
                     if (loading) return <h2>Loading...</h2>;
