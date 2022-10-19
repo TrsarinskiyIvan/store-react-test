@@ -1,20 +1,19 @@
 import './App.css';
 import Header from './components/header/Header';
 import { Route, Switch } from "react-router-dom";
-import { CardContainer } from './components/card-container/CardContainer';
 import { PureComponent } from 'react';
 import QueryProduct from './components/product/QueryProduct';
 import Cart from './components/cart/Cart';
 import CartContext from './cartContext';
 import chooseCourse from './helper/chooseCourse';
+import CardContainerWithData from './components/card-container/CardContainerWithData';
 
 class App extends PureComponent {
 
   static contextType = CartContext;
 
   constructor(props) {
-    super(props);
-
+    super(props)
     this.state = {
       selectedCategory: 'all',
       selectedCourse: '$',
@@ -26,6 +25,7 @@ class App extends PureComponent {
       selectCategory: this.selectCategory,
       totalProducts: this.totalProducts
     }
+
   }
 
   totalProducts = () => {
@@ -124,7 +124,7 @@ class App extends PureComponent {
               <QueryProduct />
             </Route>
             <Route path={`/`}>
-              <CardContainer />
+              <CardContainerWithData />
             </Route>
           </Switch>
         </div >

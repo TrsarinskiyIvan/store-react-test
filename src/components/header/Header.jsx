@@ -20,6 +20,9 @@ export default class Header extends PureComponent {
     }
 
     render() {
+
+        console.log(this.context)
+
         return (
             <header className='header'>
                 <nav className='navigation'>
