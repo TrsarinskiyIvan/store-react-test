@@ -1,30 +1,11 @@
 export default function chooseCourse(symbol) {
 
-    let indexOfAmount = 0;
-
     switch (symbol) {
-        case '$': {
-            indexOfAmount = 0;
-            break;
-        }
-        case '£': {
-            indexOfAmount = 1;
-            break;
-        }
-        case 'A$': {
-            indexOfAmount = 2;
-            break;
-        }
-        case '¥': {
-            indexOfAmount = 3;
-            break;
-        } case '₽': {
-            indexOfAmount = 4;
-            break;
-        }
-        default: {
-            indexOfAmount = 0;
-        }
+        case '$': return 0
+        case '£': return 1
+        case 'A$': return 2
+        case '¥': return 3
+        case '₽': return 4
+        default: return 0
     }
-    return indexOfAmount;
 }
