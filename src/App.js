@@ -14,10 +14,13 @@ class App extends PureComponent {
 
   constructor(props) {
     super(props)
+
+    let storedProducts = JSON.parse(localStorage.getItem('my-bag')) || []
+
     this.state = {
       selectedCategory: 'all',
       selectedCourse: '$',
-      myBag: [],
+      myBag: storedProducts,
       tax: 0.21,
       addToMyBag: this.addToMyBag,
       removeFromMyBag: this.removeFromMyBag,
@@ -111,6 +114,7 @@ class App extends PureComponent {
   }
 
   render() {
+    localStorage.setItem('my-bag', JSON.stringify(this.state.myBag))
     return (
       <CartContext.Provider value={this.state}>
         <div className='App' >

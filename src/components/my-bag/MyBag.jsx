@@ -1,13 +1,13 @@
-import './myBag.css';
-import { PureComponent } from "react";
-import ProductMini from "../product-mini/ProductMini";
-import CartContext from "../../cartContext";
-import chooseCourse from "../../helper/chooseCourse";
-import { Link } from "react-router-dom";
+import './myBag.css'
+import { PureComponent } from "react"
+import ProductMini from "../product-mini/ProductMini"
+import CartContext from "../../cartContext"
+import chooseCourse from "../../helper/chooseCourse"
+import { Link } from "react-router-dom"
 
 export default class MyBag extends PureComponent {
 
-    static contextType = CartContext;
+    static contextType = CartContext
 
     render() {
         return (
