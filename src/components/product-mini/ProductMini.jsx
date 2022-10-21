@@ -1,6 +1,6 @@
-import { PureComponent } from "react";
-import CartContext from "../../cartContext";
-import './product-mini.css';
+import { PureComponent } from "react"
+import CartContext from "../../cartContext"
+import './product-mini.css'
 
 export default class ProductMini extends PureComponent {
 
@@ -55,6 +55,6 @@ export default class ProductMini extends PureComponent {
                         <img src={this.props.gallery[0]} alt="gallery" />
                     </div>
                 </div>
-            </div>);
+            </div>)
     }
 } 
