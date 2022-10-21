@@ -1,16 +1,16 @@
-import './App.css';
-import Header from './components/header/Header';
-import { Route, Switch } from "react-router-dom";
-import { PureComponent } from 'react';
-import QueryProduct from './components/product/QueryProduct';
-import Cart from './components/cart/Cart';
-import CartContext from './cartContext';
-import chooseCourse from './helper/chooseCourse';
-import CardContainerWithData from './components/card-container/CardContainerWithData';
+import './App.css'
+import { Route, Switch } from "react-router-dom"
+import { PureComponent } from 'react'
+import QueryProduct from './components/product/QueryProduct'
+import Cart from './components/cart/Cart'
+import CartContext from './cartContext'
+import chooseCourse from './helper/chooseCourse'
+import CardContainerWithData from './components/card-container/CardContainerWithData'
+import HeaderWithData from './components/header/HeaderWithData'
 
 class App extends PureComponent {
 
-  static contextType = CartContext;
+  static contextType = CartContext
 
   constructor(props) {
     super(props)
@@ -25,7 +25,6 @@ class App extends PureComponent {
       selectCategory: this.selectCategory,
       totalProducts: this.totalProducts
     }
-
   }
 
   totalProducts = () => {
@@ -115,7 +114,7 @@ class App extends PureComponent {
     return (
       <CartContext.Provider value={this.state}>
         <div className='App' >
-          <Header />
+          <HeaderWithData />
           <Switch>
             <Route path='/cart'>
               <Cart />
@@ -128,8 +127,8 @@ class App extends PureComponent {
             </Route>
           </Switch>
         </div >
-      </CartContext.Provider>);
+      </CartContext.Provider>)
   }
 }
 
-export default App;
+export default App

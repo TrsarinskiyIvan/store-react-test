@@ -1,5 +1,5 @@
-import { PureComponent } from "react";
-import './card.css';
+import './card.css'
+import { PureComponent } from "react"
 
 export default class Card extends PureComponent {
 
@@ -11,6 +11,6 @@ export default class Card extends PureComponent {
                 <p className="card__price">{this.props.selectedCourse}&nbsp;{this.props.price}</p>
                 <div className="card__to-cart-block"><img src="./to-cart.png" alt="" /></div>
             </div>
-        );
+        )
     }
 }

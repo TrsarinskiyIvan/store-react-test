@@ -1,12 +1,12 @@
-import { PureComponent } from "react";
-import CartContext from "../../cartContext";
-import { CATEGORY } from "../../helper/queries";
-import DataProvider from "../data-provider/DataProvider";
-import { CardContainer } from "./CardContainer";
+import { PureComponent } from "react"
+import CartContext from "../../cartContext"
+import { CATEGORY } from "../../helper/queries"
+import DataProvider from "../data-provider/DataProvider"
+import { CardContainer } from "./CardContainer"
 
 export default class CardContainerWithData extends PureComponent {
 
-    static contextType = CartContext;
+    static contextType = CartContext
 
     render() {
         return (

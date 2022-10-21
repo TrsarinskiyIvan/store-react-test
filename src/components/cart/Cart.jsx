@@ -1,16 +1,16 @@
-import { PureComponent } from "react";
-import CartContext from "../../cartContext";
-import chooseCourse from "../../helper/chooseCourse";
-import ProductMini from "../product-mini/ProductMini";
-import './cart.css';
+import './cart.css'
+import { PureComponent } from "react"
+import CartContext from "../../cartContext"
+import chooseCourse from "../../helper/chooseCourse"
+import ProductMini from "../product-mini/ProductMini"
 
 export default class Cart extends PureComponent {
 
-    static contextType = CartContext;
+    static contextType = CartContext
 
     render() {
         return (
-            <div className='my-bag my-cart'>
+            <div className='my-cart'>
                 {this.context.myBag.length > 0 ? <div>
                     <h2 className="cart">Cart</h2>
                     <ul className="products-mini">

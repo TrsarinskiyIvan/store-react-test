@@ -1,6 +1,6 @@
+import './myBag.css';
 import { PureComponent } from "react";
 import ProductMini from "../product-mini/ProductMini";
-import './myBag.css';
 import CartContext from "../../cartContext";
 import chooseCourse from "../../helper/chooseCourse";
 import { Link } from "react-router-dom";
@@ -37,7 +37,7 @@ export default class MyBag extends PureComponent {
                     </div>
                     <div className="order-block-buttons">
                         <Link to='/cart' onClick={() => {
-                            this.props.showBag();
+                            this.props.showBag()
                         }}>VIEW CART</Link>
                         <Link to="" style={{ backgroundColor: '#5ECE7B', border: 'none', color: '#fff' }}>CHECK OUT</Link>
                     </div>
