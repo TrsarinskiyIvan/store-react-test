@@ -7,22 +7,13 @@ import CourseMenuWithData from '../course-menu/CourseMenuWithData'
 
 export default class HeaderC extends PureComponent {
 
-    static contextType = CartContext;
-
-    state = {
-        showCourseMenu: false,
-        showMyBag: false,
-    }
-
-    showBag = () => {
-        this.setState(p => ({ ...p, showMyBag: !p.showMyBag }))
-    }
+    static contextType = CartContext
 
     render() {
         return (
             <header className='header'>
                 <nav className='navigation'>
-                    <ul className='navigation__list'>{this.props.data.categories.map((item) => (
+                    <ul className='navigation__list'>{this.props.data.categories.map(item => (
                         <li className='navigation__list__item' key={item.name}>
                             <NavLink
                                 id={item.name}
@@ -38,24 +29,22 @@ export default class HeaderC extends PureComponent {
                 </nav>
                 <img className='header__logo' src='./logo.png' alt='Logo store' />
                 <div className='right-side'>
-                    <button id='id-btn-course' className='right-side__btn-course' onClick={(e) => {
-                        this.setState(p => ({ ...p, showCourseMenu: !p.showCourseMenu }))
-                    }}>
-                        <span>{this.context.selectedCourse}</span>
-                        <img
-                            className='right-side__btn-course__img'
-                            src='./course.png'
-                            alt='course picker' />
+                    <button
+                        id='id-btn-course'
+                        className='right-side__btn-course'
+                        onClick={(e) => this.context.showCourseMenu()}>
+                        {this.context.selectedCourse}
                     </button>
-                    <button className='right-side__btn-cart'
-                        onClick={() => { this.setState(p => ({ ...p, showMyBag: !p.showMyBag })) }}>
-                        <img className='right-side__btn-cart__img' src='./cart.png' alt='cart' />
+                    <button
+                        id='id-btn-cart'
+                        className='right-side__btn-cart'
+                        onClick={() => { this.context.showMyBagMenu() }}>
                     </button>
                 </div>
-                {this.state.showCourseMenu && <div className='currencies-menu'>
+                {this.context.showCourse && <div className='currencies-menu'>
                     <CourseMenuWithData />
                 </div>}
-                {this.state.showMyBag && <MyBag showBag={this.showBag} />}
+                {this.context.showMyBag && <MyBag showBag={this.context.showMyBagMenu} />}
                 {this.context.myBag.length !== 0 && <div className='product-counter'>{this.context.totalProducts().sum}</div>}
             </header>)
     }

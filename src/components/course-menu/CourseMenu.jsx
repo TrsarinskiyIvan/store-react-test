@@ -16,6 +16,7 @@ export default class CourseMenu extends PureComponent {
                             key={item.label}
                             onClick={(e) => {
                                 this.context.selectCourse(e.target.id)
+                                this.context.showCourseMenu()
                             }}>
                             {item.symbol}&nbsp;{item.label}
                         </li>

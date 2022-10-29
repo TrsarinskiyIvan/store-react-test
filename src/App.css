@@ -6,4 +6,9 @@
 
 a {
     color: black;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
 }

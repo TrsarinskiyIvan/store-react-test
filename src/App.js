@@ -15,19 +15,29 @@ class App extends PureComponent {
   constructor(props) {
     super(props)
 
-    let storedProducts = JSON.parse(localStorage.getItem('my-bag')) || []
-
     this.state = {
       selectedCategory: 'all',
       selectedCourse: '$',
-      myBag: storedProducts,
+      myBag: JSON.parse(localStorage.getItem('my-bag')) || [],
       tax: 0.21,
+      showCourse: false,
+      showMyBag: false,
       addToMyBag: this.addToMyBag,
       removeFromMyBag: this.removeFromMyBag,
       selectCourse: this.selectCourse,
       selectCategory: this.selectCategory,
-      totalProducts: this.totalProducts
+      totalProducts: this.totalProducts,
+      showCourseMenu: this.showCourseMenu,
+      showMyBagMenu: this.showMyBagMenu
     }
+  }
+
+
+  showCourseMenu = () => {
+    this.setState(p => ({ ...p, showCourse: !p.showCourse }))
+  }
+  showMyBagMenu = () => {
+    this.setState(p => ({ ...p, showMyBag: !p.showMyBag }))
   }
 
   totalProducts = () => {
@@ -115,6 +125,16 @@ class App extends PureComponent {
 
   render() {
     localStorage.setItem('my-bag', JSON.stringify(this.state.myBag))
+
+    document.getElementById('root').addEventListener('click', e => {
+      if (this.state.showCourse && e.target.id !== 'id-btn-course') {
+        this.setState(p => ({ ...p, showCourse: false }))
+      }
+      // if (this.state.showMyBag && e.target.id !== 'id-btn-cart') {
+      //   this.setState(p => ({ ...p, showMyBag: false }))
+      // }
+    })
+
     return (
       <CartContext.Provider value={this.state}>
         <div className='App' >

@@ -41,19 +41,27 @@
 
 .right-side button {
     border: none;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #0000;
     cursor: pointer;
     height: 30px;
+    width: 40px;
     margin-left: 5px;
+    text-align: left;
+    padding: 0;
 }
 
-.right-side__btn-cart__img {
-    height: 100%;
-}
-
-.right-side__btn-course span {
+.right-side__btn-course {
     font-size: 20px;
     margin-right: 5px;
+    background-image: url('../../../public/course.png');
+    background-repeat: no-repeat;
+    background-position: right 0 bottom 10px;
+}
+
+.right-side__btn-cart {
+    background-image: url('../../../public/cart.png');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
 }
 
 .currencies-menu {
@@ -64,7 +72,7 @@
     width: 100px;
     box-shadow: 10px 10px 10px #d9d9d8;
     text-align: center;
-    background-color: white;
+    background-color: #fff;
 }
 
 .currencies__list_item {
@@ -72,7 +80,7 @@
 }
 
 .currencies__list_item:hover {
-    background-color: #EEEEEE;
+    background-color: rgb(238, 238, 238);
     cursor: pointer;
 }
 
