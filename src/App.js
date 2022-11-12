@@ -1,3 +1,4 @@
+import './reset.css'
 import './App.css'
 import { Route, Switch } from "react-router-dom"
 import { PureComponent } from 'react'
@@ -17,8 +18,8 @@ class App extends PureComponent {
 
     this.state = {
       selectedCategory: 'all',
-      selectedCourse: '$',
-      myBag: JSON.parse(localStorage.getItem('my-bag')) || [],
+      selectedCourse: localStorage.getItem('selectedCourse') || '$',
+      myBag: JSON.parse(localStorage.getItem('myBag')) || [],
       tax: 0.21,
       showCourse: false,
       showMyBag: false,
@@ -124,7 +125,9 @@ class App extends PureComponent {
   }
 
   render() {
-    localStorage.setItem('my-bag', JSON.stringify(this.state.myBag))
+
+    localStorage.setItem('selectedCourse', this.state.selectedCourse)
+    localStorage.setItem('myBag', JSON.stringify(this.state.myBag))
 
     document.getElementById('root').addEventListener('click', e => {
       if (this.state.showCourse && e.target.id !== 'id-btn-course') {

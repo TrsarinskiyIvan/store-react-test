@@ -12,6 +12,7 @@ export const CATEGORY = gql`
                 category(input:$input){
                     name
                     products{
+                        inStock
                         id
                         name
                         brand

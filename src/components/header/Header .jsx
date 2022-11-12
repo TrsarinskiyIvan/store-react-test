@@ -1,4 +1,5 @@
 import './header.css'
+import logoImg from './logo.png'
 import { PureComponent } from "react"
 import { NavLink } from "react-router-dom"
 import MyBag from '../my-bag/MyBag'
@@ -27,7 +28,7 @@ export default class HeaderC extends PureComponent {
                         </li>))}
                     </ul>
                 </nav>
-                <img className='header__logo' src='./logo.png' alt='Logo store' />
+                <img className='header__logo' src={logoImg} alt='Logo store' />
                 <div className='right-side'>
                     <button
                         id='id-btn-course'
