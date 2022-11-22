@@ -5,7 +5,6 @@
     top: 60px;
     z-index: 200;
     padding: 32px 16px;
-    box-shadow: 10px 10px 10px #d9d9d8;
     overflow-y: auto;
     background-color: #fff;
 }

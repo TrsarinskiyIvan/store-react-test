@@ -1,6 +1,6 @@
-import { PureComponent } from "react";
-import './product.css';
-import CartContext from "../../cartContext";
+import { PureComponent } from "react"
+import './product.css'
+import CartContext from "../../cartContext"
 
 export default class Product extends PureComponent {
 
@@ -8,7 +8,7 @@ export default class Product extends PureComponent {
 
     state = {
         selectedImage: this.props.gallery[0],
-        selectedAttributes: {}
+        selectedAttributes: { attributeDefault: 'none' }
     }
 
     render() {
@@ -16,7 +16,7 @@ export default class Product extends PureComponent {
             <div className="product">
                 <div className="image-block">
                     <img className="product-image" src={this.state.selectedImage} alt="" />
-                    <ul>
+                    <ul className="list-mini-images">
                         {this.props.gallery.map((i, index) => (<li className="mini-image" key={index}>
                             <img onClick={event => this.setState({ selectedImage: event.target.src })} className="product-image-mini" src={i} alt="" /></li>))}
                     </ul>
@@ -25,7 +25,7 @@ export default class Product extends PureComponent {
                     <h2 className="product-brand">{this.props.brand}</h2>
                     <p className="product-title">{this.props.name}</p>
                     <p className="price">PRICE:</p>
-                    <p className="amount">{this.context.selectedCourse}{this.props.price}</p>
+                    <p className="amount">{this.context.selectedCourse}{this.props.price.toFixed(2)}</p>
                     <ul className="attributes">
                         {this.props.attributes.map(attribute => (
                             <li key={attribute.id}>
@@ -62,11 +62,14 @@ export default class Product extends PureComponent {
                     <button
                         onClick={() => {
                             if (this.props.inStock) {
-                                this.context.addToMyBag({
+
+                                const product = {
                                     product: this.props,
                                     attributes: this.state.selectedAttributes,
                                     quantity: 1
-                                });
+                                }
+
+                                this.context.addToMyBag(product);
                             }
                         }}
                         className={`add-to-cart-btn ${!this.props.inStock && 'is-stock'}`}>ADD TO CART

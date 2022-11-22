@@ -4,20 +4,26 @@ import './product-mini.css'
 
 export default class ProductMini extends PureComponent {
 
-    static contextType = CartContext;
+    static contextType = CartContext
 
-    state = {
-        selectedImage: this.props.gallery[0],
-        selectedAttributes: this.props.selectedAttributes
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            selectedImage: this.props.gallery[0],
+            selectedAttributes: this.props.selectedAttributes
+        }
     }
-
     render() {
+
+        this.setState(p => ({ ...p, selectedAttributes: this.props.selectedAttributes }))
+
         return (
             <div className="product-mini">
                 <div>
                     <h2 className="product-mini__name">{this.props.name}</h2>
                     <p className="product-mini__brand">{this.props.brand}</p>
-                    <p className="product-mini__price">{this.props.symbol}{this.props.price}</p>
+                    <p className="product-mini__price">{this.props.symbol}{this.props.price.toFixed(2)}</p>
                     <ul className="mini-attributes">
                         {this.props.attributes.map(attribute => (
                             <li key={attribute.id}>
@@ -46,10 +52,20 @@ export default class ProductMini extends PureComponent {
                 <div className="img-btn-container">
                     <div className="buttons-menu">
                         <button onClick={() => {
-                            this.context.addToMyBag({ product: { idProduct: this.props.idProduct } })
+                            const product = {
+                                product: this.props,
+                                attributes: this.state.selectedAttributes
+                            }
+                            this.context.addToMyBag(product)
                         }}>+</button>
                         <span>{this.props.quantity}</span>
-                        <button onClick={() => { this.context.removeFromMyBag({ product: { idProduct: this.props.idProduct } }) }}>-</button>
+                        <button onClick={() => {
+                            const product = {
+                                product: this.props,
+                                attributes: this.state.selectedAttributes
+                            }
+                            this.context.removeFromMyBag(product)
+                        }}>-</button>
                     </div>
                     <div className="mini-img-container">
                         <img src={this.props.gallery[0]} alt="gallery" />

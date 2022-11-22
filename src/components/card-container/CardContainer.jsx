@@ -11,7 +11,7 @@ export class CardContainer extends PureComponent {
 
     render() {
         return (
-            <>
+            <div className='card-container-wrapper'>
                 <h2 className='category-name'>{this.context.selectedCategory}</h2>
                 <ul className='card-container'>
                     {this.props.data.category.products.map(i => {
@@ -19,8 +19,12 @@ export class CardContainer extends PureComponent {
                             <li key={i.id}>
                                 <Link to={`/product/?id=${i.id}`}>
                                     <Card
+                                        attributes={i.attributes}
+                                        prices={i.prices}
+                                        idProduct={i.id}
+                                        gallery={i.gallery}
                                         inStock={i.inStock}
-                                        title={i.name}
+                                        name={i.name}
                                         brand={i.brand}
                                         imgUrl={i.gallery[0]}
                                         selectedCourse={this.context.selectedCourse}
@@ -31,6 +35,6 @@ export class CardContainer extends PureComponent {
                         )
                     })}
                 </ul>
-            </>)
+            </div>)
     }
 }

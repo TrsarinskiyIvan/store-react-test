@@ -27,7 +27,7 @@ class App extends PureComponent {
       removeFromMyBag: this.removeFromMyBag,
       selectCourse: this.selectCourse,
       selectCategory: this.selectCategory,
-      totalProducts: this.totalProducts,
+      totalProducts: this.totalProducts || { sum: 0, price: 0 },
       showCourseMenu: this.showCourseMenu,
       showMyBagMenu: this.showMyBagMenu
     }
@@ -59,50 +59,47 @@ class App extends PureComponent {
 
     this.setState(p => {
 
-      let foundIndex = p.myBag.findIndex(e => {
-        return product.product.idProduct === e.product.idProduct;
-      });
+      let tmpBag = [...p.myBag]
 
-      let tempProduct;
-      let tempBag;
+      let foundIndex = tmpBag.findIndex(i => {
+        return ((i.product.idProduct === product.product.idProduct)
+          && (JSON.stringify(i.attributes) === JSON.stringify(product.attributes)))
+      })
 
-      tempProduct = { ...p.myBag[foundIndex] };
-      tempProduct.quantity--;
+      const tmpProduct = { ...tmpBag[foundIndex] }
 
-      tempBag = [...p.myBag];
+      tmpProduct.quantity--
 
-      if (tempProduct.quantity === 0) {
-        tempBag.splice(foundIndex, 1);
+      if (tmpProduct.quantity === 0) {
+        tmpBag.splice(foundIndex, 1)
       } else {
-        tempBag[foundIndex] = tempProduct;
+        tmpBag[foundIndex] = tmpProduct
       }
 
-      return {
-        ...p,
-        myBag: tempBag
-      }
+      return { ...p, myBag: tmpBag }
 
-    });
-
+    })
   }
 
   addToMyBag = (product) => {
 
     this.setState(p => {
 
-      let foundIndex = p.myBag.findIndex(e => {
-        return product.product.idProduct === e.product.idProduct;
-      });
+      let foundIndex = p.myBag.findIndex(i => {
+        return ((i.product.idProduct === product.product.idProduct)
+          && (JSON.stringify(i.attributes) === JSON.stringify(product.attributes)))
+      })
 
-      let tempProduct;
-      let tempBag;
+      let tempProduct
+      let tempBag
 
       if (foundIndex !== -1) {
-        tempProduct = p.myBag[foundIndex];
-        tempProduct.quantity++;
-        tempBag = [...p.myBag];
 
-        tempBag[foundIndex] = tempProduct;
+        tempProduct = p.myBag[foundIndex]
+
+        tempProduct.quantity++
+        tempBag = [...p.myBag]
+        tempBag[foundIndex] = tempProduct
 
         return {
           ...p,
@@ -112,16 +109,17 @@ class App extends PureComponent {
       } else return {
         ...p,
         myBag: [...p.myBag, product]
-      };
-    });
+      }
+    })
+
   }
 
   selectCategory = (category) => {
-    this.setState(p => ({ ...p, selectedCategory: category }));
+    this.setState(p => ({ ...p, selectedCategory: category }))
   }
 
   selectCourse = (symbol) => {
-    this.setState(p => ({ ...p, selectedCourse: symbol }));
+    this.setState(p => ({ ...p, selectedCourse: symbol }))
   }
 
   render() {
@@ -130,29 +128,28 @@ class App extends PureComponent {
     localStorage.setItem('myBag', JSON.stringify(this.state.myBag))
 
     document.getElementById('root').addEventListener('click', e => {
-      if (this.state.showCourse && e.target.id !== 'id-btn-course') {
-        this.setState(p => ({ ...p, showCourse: false }))
-      }
-      // if (this.state.showMyBag && e.target.id !== 'id-btn-cart') {
-      //   this.setState(p => ({ ...p, showMyBag: false }))
-      // }
+      if (this.state.showCourse && e.target.id !== 'id-btn-course') this.showCourseMenu()
     })
+
 
     return (
       <CartContext.Provider value={this.state}>
-        <div className='App' >
+        <div className='App'>
           <HeaderWithData />
-          <Switch>
-            <Route path='/cart'>
-              <Cart />
-            </Route>
-            <Route path='/product'>
-              <QueryProduct />
-            </Route>
-            <Route path={`/`}>
-              <CardContainerWithData />
-            </Route>
-          </Switch>
+          <div className="main-wrapper">
+            {this.state.showMyBag && <div onClick={() => this.showMyBagMenu()} className='screen-saver'></div>}
+            <Switch>
+              <Route path='/cart'>
+                <Cart />
+              </Route>
+              <Route path='/product'>
+                <QueryProduct />
+              </Route>
+              <Route path={`/`}>
+                <CardContainerWithData />
+              </Route>
+            </Switch>
+          </div>
         </div >
       </CartContext.Provider>)
   }

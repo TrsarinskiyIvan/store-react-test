@@ -17,6 +17,16 @@ export const CATEGORY = gql`
                         name
                         brand
                         gallery
+                        attributes{
+                            id
+                            name
+                            type
+                            items{
+                                displayValue
+                                value
+                                id
+                            }
+                        }
                         prices{
                             amount
                             currency{

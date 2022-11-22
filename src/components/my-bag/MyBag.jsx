@@ -12,10 +12,10 @@ export default class MyBag extends PureComponent {
     render() {
         return (
             <div className='my-bag'>
-                <h2>My Bag  {this.context.totalProducts().sum} <span>items</span></h2>
+                <h2>My bag  {this.context.totalProducts().sum} item{this.context.totalProducts().sum !== 1 && 's'}</h2>
                 <ul className="products-mini">
-                    {this.context.myBag.map(i => (
-                        <li key={i.product.idProduct}>
+                    {this.context.myBag.map((i, index) => (
+                        <li key={index}>
                             <ProductMini
                                 name={i.product.name}
                                 brand={i.product.brand}
@@ -43,7 +43,6 @@ export default class MyBag extends PureComponent {
                     </div>
                 </div>
                 }
-
             </div>)
     }
 }

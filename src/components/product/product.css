@@ -1,5 +1,7 @@
 .product {
     display: flex;
+    padding: 0 70px;
+    height: 100%
 }
 
 .image-block {
@@ -8,6 +10,10 @@
     margin-right: 90px;
 }
 
+.list-mini-images {
+    max-height: 800px;
+    overflow-y: auto;
+}
 
 .mini-image {
     cursor: pointer;
@@ -29,7 +35,8 @@
 .product-image {
     margin-left: 50px;
     width: 700px;
-    object-fit: contain
+    height: 700px;
+    object-fit: scale-down;
 }
 
 .product-brand {
@@ -119,7 +126,7 @@
 }
 
 .is-stock:hover {
-    cursor: auto;
+    cursor: not-allowed;
     background-color: #808080;
 }
 

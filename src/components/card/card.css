@@ -64,3 +64,11 @@
 .card:hover .card__to-cart-block {
     opacity: 1;
 }
+
+.in-stock {
+    filter: grayscale(100%);
+}
+
+.in-stock:hover {
+    cursor: not-allowed;
+}

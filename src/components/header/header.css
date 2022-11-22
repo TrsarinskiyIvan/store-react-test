@@ -1,10 +1,9 @@
 .header {
-    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    padding: 0 70px;
 }
 
 .navigation__list {
@@ -59,6 +58,7 @@
 }
 
 .right-side__btn-cart {
+    position: relative;
     background-image: url('../../../public/cart.png');
     background-repeat: no-repeat;
     background-size: 30px 30px;
@@ -80,7 +80,7 @@
 }
 
 .currencies__list_item:hover {
-    background-color: rgb(238, 238, 238);
+    background-color: #eeeeee;
     cursor: pointer;
 }
 
@@ -90,7 +90,7 @@
     align-items: center;
     position: absolute;
     right: -15px;
-    top: 10px;
+    top: -20px;
     color: #fff;
     width: 32px;
     height: 32px;
