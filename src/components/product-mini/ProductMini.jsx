@@ -6,17 +6,7 @@ export default class ProductMini extends PureComponent {
 
     static contextType = CartContext
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            selectedImage: this.props.gallery[0],
-            selectedAttributes: this.props.selectedAttributes
-        }
-    }
     render() {
-
-        this.setState(p => ({ ...p, selectedAttributes: this.props.selectedAttributes }))
 
         return (
             <div className="product-mini">
@@ -32,7 +22,7 @@ export default class ProductMini extends PureComponent {
                                     <ul className="mini-attribute-param">{attribute.items.map(item => (
                                         <li
                                             key={item.id}
-                                            className={`color-attribute ${this.state.selectedAttributes[`${attribute.id}`] === item.id && ' color-attribute_selected'}`}
+                                            className={`color-attribute ${this.props.selectedAttributes[`${attribute.id}`] === item.id && ' color-attribute_selected'}`}
                                             style={{ backgroundColor: item.value }}
 
                                         />))}
@@ -40,7 +30,7 @@ export default class ProductMini extends PureComponent {
                                     <ul className="mini-attribute-param">{attribute.items.map(item => (
                                         <li
                                             key={item.id}
-                                            className={`mini-attribute-param__item ${this.state.selectedAttributes[`${attribute.id}`] === item.id && 'selected-attribute'}`}>
+                                            className={`mini-attribute-param__item ${this.props.selectedAttributes[`${attribute.id}`] === item.id && 'selected-attribute'}`}>
                                             {item.value}
                                         </li>))}
                                     </ul>}
@@ -54,7 +44,7 @@ export default class ProductMini extends PureComponent {
                         <button onClick={() => {
                             const product = {
                                 product: this.props,
-                                attributes: this.state.selectedAttributes
+                                attributes: this.props.selectedAttributes
                             }
                             this.context.addToMyBag(product)
                         }}>+</button>
@@ -62,7 +52,7 @@ export default class ProductMini extends PureComponent {
                         <button onClick={() => {
                             const product = {
                                 product: this.props,
-                                attributes: this.state.selectedAttributes
+                                attributes: this.props.selectedAttributes
                             }
                             this.context.removeFromMyBag(product)
                         }}>-</button>
