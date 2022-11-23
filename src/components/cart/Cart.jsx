@@ -26,6 +26,7 @@ export default class Cart extends PureComponent {
                                     quantity={i.quantity}
                                     idProduct={i.product.idProduct}
                                     selectedAttributes={i.attributes}
+                                    showImgNavigation={true}
                                 />
                             </li>))
                         }

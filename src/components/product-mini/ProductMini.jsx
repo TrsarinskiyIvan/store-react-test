@@ -6,6 +6,11 @@ export default class ProductMini extends PureComponent {
 
     static contextType = CartContext
 
+    state = {
+        gallery: this.props.gallery,
+        currentImageIndex: 0
+    }
+
     render() {
 
         return (
@@ -24,7 +29,6 @@ export default class ProductMini extends PureComponent {
                                             key={item.id}
                                             className={`color-attribute ${this.props.selectedAttributes[`${attribute.id}`] === item.id && ' color-attribute_selected'}`}
                                             style={{ backgroundColor: item.value }}
-
                                         />))}
                                     </ul> :
                                     <ul className="mini-attribute-param">{attribute.items.map(item => (
@@ -58,7 +62,20 @@ export default class ProductMini extends PureComponent {
                         }}>-</button>
                     </div>
                     <div className="mini-img-container">
-                        <img src={this.props.gallery[0]} alt="gallery" />
+                        <img src={this.state.gallery[this.state.currentImageIndex]} alt="gallery" />
+                        {this.props.showImgNavigation && <><button
+                            className="image-navigation-btn left-btn"
+                            onClick={() => {
+                                this.setState(p => ({
+                                    ...p,
+                                    currentImageIndex: (p.currentImageIndex + this.state.gallery.length - 1) % this.state.gallery.length
+                                }))
+                            }} />
+                            <button
+                                className="image-navigation-btn right-btn"
+                                onClick={() => {
+                                    this.setState(p => ({ ...p, currentImageIndex: (p.currentImageIndex + 1) % this.state.gallery.length }))
+                                }} /></>}
                     </div>
                 </div>
             </div>)
