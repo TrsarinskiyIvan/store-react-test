@@ -100,20 +100,24 @@
 .image-navigation-btn {
     position: absolute;
     bottom: 10px;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border: none;
-    background-color: #0f64504d;
+    opacity: 0.5;
 }
 
 .left-btn {
-    left: 8px;
+    left: 55px;
+    background-image: url('../../../public/arrow_left.png');
+    background-size: cover;
 }
 
 .right-btn {
     right: 10px;
+    background-image: url('../../../public/arrow_right.png');
+    background-size: cover;
 }
 
 .mini-img-container:hover .image-navigation-btn {
-    background-color: #0f6450;
+    opacity: 1;
 }
