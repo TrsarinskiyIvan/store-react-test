@@ -74,9 +74,9 @@ export default class Product extends PureComponent {
                         }}
                         className={`add-to-cart-btn ${!this.props.inStock && 'is-stock'}`}>ADD TO CART
                     </button>
-                    <p className="description">{this.props.description}</p>
+                    <p className="description" dangerouslySetInnerHTML={{ __html: this.props.description }} />
                 </div>
-            </div>
+            </div >
         )
     }
 }

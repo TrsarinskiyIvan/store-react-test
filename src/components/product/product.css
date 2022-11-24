@@ -134,3 +134,7 @@
     background-color: #1D1F22;
     color: #fff;
 }
+
+.description ul {
+    list-style: square;
+}

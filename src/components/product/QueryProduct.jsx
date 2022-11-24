@@ -17,11 +17,20 @@ export default class QueryProduct extends PureComponent {
         return (
             <Query query={PRODUCT} variables={{ id }}>
                 {({ data, loading, error }) => {
-                    if (error) return <h2>Error!</h2>;
-                    if (loading) return <h2>Loading...</h2>;
-                    let node = document.createElement('div');
-                    node.innerHTML = data.product.description;
-                    let description = node.textContent;
+                    if (error) return <h2>Error!</h2>
+                    if (loading) return <h2>Loading...</h2>
+
+                    let node = document.createElement('div')
+                    node.innerHTML = data.product.description
+
+                    let description = data.product.description
+
+                    console.log(node.childNodes)
+
+                    node.childNodes.forEach(e => {
+                        console.log(e.innerHTML)
+                    })
+
 
                     return (
                         <Product
@@ -35,8 +44,8 @@ export default class QueryProduct extends PureComponent {
                             prices={data.product.prices}
                             selectedCourse={this.props.selectedCourse}
                             inStock={data.product.inStock}
-                        />);
+                        />)
                 }}
-            </Query>);
+            </Query>)
     }
 }
