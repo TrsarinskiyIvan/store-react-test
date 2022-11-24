@@ -7,13 +7,13 @@ import { BrowserRouter } from 'react-router-dom';
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
   cache: new InMemoryCache(),
-});
+})
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </ApolloProvider >
-);
+)

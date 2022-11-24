@@ -43,15 +43,14 @@ class App extends PureComponent {
 
   totalProducts = () => {
 
-    let sum = 0;
-    let price = 0;
+    let sum = 0, price = 0
 
     this.state.myBag.forEach(e => {
-      sum += e.quantity;
-      price += e.product.prices[chooseCourse(this.state.selectedCourse)].amount * e.quantity;
-    });
+      sum += e.quantity
+      price += e.product.prices[chooseCourse(this.state.selectedCourse)].amount * e.quantity
+    })
 
-    return { sum, price };
+    return { sum, price }
 
   }
 
