@@ -14,8 +14,8 @@ export default class Cart extends PureComponent {
                 {this.context.myBag.length > 0 ? <div>
                     <h2 className="cart">Cart</h2>
                     <ul className="products-mini">
-                        {this.context.myBag.map(i => (
-                            <li key={i.product.idProduct} className="poduct-item">
+                        {this.context.myBag.map((i, index) => (
+                            <li key={index} className="poduct-item">
                                 <ProductMini
                                     name={i.product.name}
                                     brand={i.product.brand}
