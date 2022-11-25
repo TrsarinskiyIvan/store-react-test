@@ -2,12 +2,12 @@ import './reset.css'
 import './App.css'
 import { Route, Switch } from "react-router-dom"
 import { PureComponent } from 'react'
-import QueryProduct from './components/product/QueryProduct'
 import Cart from './components/cart/Cart'
 import CartContext from './cartContext'
 import chooseCourse from './helper/chooseCourse'
 import CardContainerWithData from './components/card-container/CardContainerWithData'
 import HeaderWithData from './components/header/HeaderWithData'
+import ProductWithData from './components/product/ProductWithData'
 
 class App extends PureComponent {
 
@@ -142,7 +142,7 @@ class App extends PureComponent {
                 <Cart />
               </Route>
               <Route path='/product'>
-                <QueryProduct />
+                <ProductWithData />
               </Route>
               <Route path={`/`}>
                 <CardContainerWithData />

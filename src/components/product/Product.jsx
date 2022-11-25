@@ -1,13 +1,14 @@
 import { PureComponent } from "react"
 import './product.css'
 import CartContext from "../../cartContext"
+import chooseCourse from "../../helper/chooseCourse";
 
 export default class Product extends PureComponent {
 
     static contextType = CartContext;
 
     state = {
-        selectedImage: this.props.gallery[0],
+        selectedImage: this.props.data.product.gallery[0],
         selectedAttributes: { attributeDefault: 'none' }
     }
 
@@ -17,17 +18,17 @@ export default class Product extends PureComponent {
                 <div className="image-block">
                     <img className="product-image" src={this.state.selectedImage} alt="" />
                     <ul className="list-mini-images">
-                        {this.props.gallery.map((i, index) => (<li className="mini-image" key={index}>
+                        {this.props.data.product.gallery.map((i, index) => (<li className="mini-image" key={index}>
                             <img onClick={event => this.setState({ selectedImage: event.target.src })} className="product-image-mini" src={i} alt="" /></li>))}
                     </ul>
                 </div>
                 <div className="info">
-                    <h2 className="product-brand">{this.props.brand}</h2>
-                    <p className="product-title">{this.props.name}</p>
+                    <h2 className="product-brand">{this.props.data.product.brand}</h2>
+                    <p className="product-title">{this.props.data.product.name}</p>
                     <p className="price">PRICE:</p>
-                    <p className="amount">{this.context.selectedCourse}{this.props.price.toFixed(2)}</p>
+                    <p className="amount">{this.context.selectedCourse}{this.props.data.product.prices[chooseCourse(this.context.selectedCourse)].amount}</p>
                     <ul className="attributes">
-                        {this.props.attributes.map(attribute => (
+                        {this.props.data.product.attributes.map(attribute => (
                             <li key={attribute.id}>
                                 <p className="attribute-name">{attribute.name}</p>
                                 {attribute.name === 'Color' ?
@@ -61,10 +62,10 @@ export default class Product extends PureComponent {
                     </ul>
                     <button
                         onClick={() => {
-                            if (this.props.inStock) {
+                            if (this.props.data.product.inStock) {
 
                                 const product = {
-                                    product: this.props,
+                                    product: this.props.data.product,
                                     attributes: this.state.selectedAttributes,
                                     quantity: 1
                                 }
@@ -72,11 +73,11 @@ export default class Product extends PureComponent {
                                 this.context.addToMyBag(product);
                             }
                         }}
-                        className={`add-to-cart-btn ${!this.props.inStock && 'is-stock'}`}>ADD TO CART
+                        className={`add-to-cart-btn ${!this.props.data.product.inStock && 'is-stock'}`}>ADD TO CART
                     </button>
-                    <p className="description" dangerouslySetInnerHTML={{ __html: this.props.description }} />
+                    <p className="description" dangerouslySetInnerHTML={{ __html: this.props.data.product.description }} />
                 </div>
-            </div >
+            </div>
         )
     }
 }
