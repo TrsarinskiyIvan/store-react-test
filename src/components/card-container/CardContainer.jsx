@@ -21,7 +21,7 @@ export class CardContainer extends PureComponent {
                                     <Card
                                         attributes={i.attributes}
                                         prices={i.prices}
-                                        idProduct={i.id}
+                                        id={i.id}
                                         gallery={i.gallery}
                                         inStock={i.inStock}
                                         name={i.name}

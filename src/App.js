@@ -61,7 +61,7 @@ class App extends PureComponent {
       let tmpBag = [...p.myBag]
 
       let foundIndex = tmpBag.findIndex(i => {
-        return ((i.product.idProduct === product.product.idProduct)
+        return ((i.product.id === product.product.id)
           && (JSON.stringify(i.attributes) === JSON.stringify(product.attributes)))
       })
 
@@ -85,7 +85,7 @@ class App extends PureComponent {
     this.setState(p => {
 
       let foundIndex = p.myBag.findIndex(i => {
-        return ((i.product.idProduct === product.product.idProduct)
+        return ((i.product.id === product.product.id)
           && (JSON.stringify(i.attributes) === JSON.stringify(product.attributes)))
       })
 

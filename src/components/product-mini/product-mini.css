@@ -99,7 +99,7 @@
 
 .image-navigation-btn {
     position: absolute;
-    bottom: 10px;
+    bottom: -20px;
     width: 24px;
     height: 24px;
     border: none;

@@ -24,7 +24,7 @@ export default class MyBag extends PureComponent {
                                 attributes={i.product.attributes}
                                 gallery={i.product.gallery}
                                 quantity={i.quantity}
-                                idProduct={i.product.idProduct}
+                                id={i.product.id}
                                 selectedAttributes={i.attributes}
                             />
                         </li>))
